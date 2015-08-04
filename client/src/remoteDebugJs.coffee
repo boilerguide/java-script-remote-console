@@ -22,13 +22,3 @@ class RemoteConsole
     ,5
 
 window.console = new RemoteConsole;
-
-x = {
-  p1: 'p1',
-  p2: 'p2satatatat'
-}
-
-console.log 'a', 'b', 'c', 'd'
-console.error 'a', 'b', 'c', 'd'
-console.warn 'a', 'b', 'c', 'd'
-console.info 'a', 'b', 'c', 'd', x, x
