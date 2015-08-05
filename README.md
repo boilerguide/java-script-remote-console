@@ -8,3 +8,7 @@ Client is a simple .js file that should be included as the very first script to 
 
 ### Server
 Server is a set of PHP classes listening to and printing messages captured from the client. At the moment no configuration file exists so all alteration has to be done on the file level. However, it is reccomended not to change values other than IP address and port number. The config file is to be included in future versions. Server can be run with `php server/bin/run.php` command.
+
+***
+### Known issues
+Trying to run on 64bit PHP under Windows, with openssl extension enabled, causes PHP warning blocking server's work.
