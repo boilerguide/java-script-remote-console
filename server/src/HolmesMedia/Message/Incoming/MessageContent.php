@@ -25,18 +25,13 @@ class MessageContent
     public function __construct($rawContent)
     {
         $this->rawContent = $rawContent;
-
-        if (is_array($this->rawContent)) {
-            $numItems = count($this->rawContent);
-            $i = 0;
-            foreach ($this->rawContent as $key => $val) {
-                $this->processedContent .= $this->processContent($val);
-                if(++$i !== $numItems) {
-                    $this->processedContent .= ", ";
-                }
+        $numItems = count($this->rawContent);
+        $i = 0;
+        foreach ($this->rawContent as $argument) {
+            $this->processedContent .= $this->processContent($argument);
+            if(++$i !== $numItems) {
+                $this->processedContent .= ", ";
             }
-        } else {
-            $this->processedContent = $rawContent;
         }
     }
 
@@ -45,7 +40,7 @@ class MessageContent
      */
     public function __toString()
     {
-        return $this->processedContent;
+        return $this->processedContent !== null ? $this->processedContent : 'NULL';
     }
 
     private function processContent($data)
