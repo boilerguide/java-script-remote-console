@@ -24,6 +24,7 @@ class RemoteConsole
     that = @
     @browserDetector = new BrowserDetector
     @socket = new ReconnectingWebSocket 'ws://127.0.0.1:8081/'
+    @send 'HELLO', [{name: @browserDetector.getBrowserId() }]
     @socket.onopen = () ->
       that.send 'HELLO', [{name: that.browserDetector.getBrowserId() }]
   log: () ->
