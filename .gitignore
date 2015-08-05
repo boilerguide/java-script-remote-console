@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 
-vendor
+server/vendor
 client/dist
 client/test
+client/node_modules
