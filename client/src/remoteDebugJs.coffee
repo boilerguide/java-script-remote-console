@@ -21,9 +21,11 @@ class BrowserDetector
 
 class RemoteConsole
   constructor: () ->
-    @socket = new WebSocket 'ws://127.0.0.1:8081/'
+    that = @
     @browserDetector = new BrowserDetector
-    @send 'HELLO', [{name: @browserDetector.getBrowserId() }]
+    @socket = new ReconnectingWebSocket 'ws://127.0.0.1:8081/'
+    @socket.onopen = () ->
+      that.send 'HELLO', [{name: that.browserDetector.getBrowserId() }]
   log: () ->
     @send 'LOG', arguments
   error: () ->

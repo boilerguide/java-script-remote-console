@@ -10,7 +10,7 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('merge', function() {
-    gulp.src(['./node_modules/bowser/bowser.min.js', './stage/js/*.js'])
+    gulp.src(['./node_modules/bowser/bowser.min.js', './lib/*.js', './stage/js/*.js'])
         .pipe(concat('remoteDebug.js', {newLine: ';'}))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'));
