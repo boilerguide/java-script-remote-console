@@ -1,6 +1,29 @@
+class BrowserDetector
+  systems: [
+    "android"
+    "windowsphone"
+    "ios"
+    "blackberry"
+    "firefoxos"
+    "webos"
+    "bada"
+    "tizen"
+    "sailfish"
+  ]
+  getBrowserId: () ->
+    id = bowser.name + ' v' + bowser.version
+
+    if bowser.mobile || bowser.tablet
+      for own system of @systems
+        if bowser[system] is true then id = id + ' @ ' + system
+
+    id
+
 class RemoteConsole
   constructor: () ->
     @socket = new WebSocket 'ws://127.0.0.1:8081/'
+    @browserDetector = new BrowserDetector
+    @send 'HELLO', {name: @browserDetector.getBrowserId() }
   log: () ->
     @send 'LOG', arguments
   error: () ->

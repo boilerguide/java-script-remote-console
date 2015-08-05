@@ -4,4 +4,5 @@
 server/vendor
 client/dist
 client/test
+client/stage
 client/node_modules
