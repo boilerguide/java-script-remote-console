@@ -47,3 +47,5 @@ class RemoteConsole
     ,5
 
 window.console = new RemoteConsole;
+window.onerror = (errorMessage, errorUrl, lineNumber) ->
+  console.error(errorMessage + ' at ' + errorUrl + ':' + lineNumber)
