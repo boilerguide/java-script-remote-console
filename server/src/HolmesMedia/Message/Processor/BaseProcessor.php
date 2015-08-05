@@ -42,6 +42,6 @@ class BaseProcessor
 
     private function processHelloMessage(Message $message, Connection $connection)
     {
-        $connection->setDeviceName($message->getContent()->getRawContent()['name']);
+        $connection->setDeviceName($message->getContent()->getRawContent()[0]['name']);
     }
 }
