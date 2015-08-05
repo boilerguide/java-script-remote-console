@@ -23,7 +23,7 @@ class RemoteConsole
   constructor: () ->
     @socket = new WebSocket 'ws://127.0.0.1:8081/'
     @browserDetector = new BrowserDetector
-    @send 'HELLO', {name: @browserDetector.getBrowserId() }
+    @send 'HELLO', [{name: @browserDetector.getBrowserId() }]
   log: () ->
     @send 'LOG', arguments
   error: () ->
